@@ -6,7 +6,6 @@
 /corpus-small
 /test
 awscliv2.zip
-*.txt
 send.sh
 /experiment
 
