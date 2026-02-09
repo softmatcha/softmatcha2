@@ -82,11 +82,14 @@ def main(args: Namespace) -> None:
 			print("\x1b[31mError: The number of tokens should be 12 or less (Current: " + str(len(pattern)) + ")\x1b[0m")
 		else:
 			unknown = False
+			c = 0
 			for i in pattern.tokens:
 				if i >= min(searcher.max_vocab, len(embedding.embeddings)) - 1:
 					unknown = True
-					print("\x1b[31mWord \"" + tokenizer.tokens[i] + "\" is unknown, so no match found\x1b[0m")
+					list_words = tokenizer.tokenize(pattern_str)
+					print("\x1b[31mWord \"" + list_words[c] + "\" is unknown, so no match found\x1b[0m")
 					break
+				c += 1
 			if unknown == False:
 				logger.info(f"Pattern length: {len(pattern):,}")
 				list_str, match_num = searcher.get_exact_match(pattern, args.exact.display, args.exact.padding)

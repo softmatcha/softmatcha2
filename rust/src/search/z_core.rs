@@ -179,7 +179,7 @@ pub fn compute(
 			end = true;
 		}
 		if end == true {
-			println!("Time Complexity = {:?} {:?}", time_complexity, goal_alpha);
+			println!("#Search = {:?}", time_complexity);
 			break;
 		}
 	}
