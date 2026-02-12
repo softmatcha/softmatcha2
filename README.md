@@ -112,3 +112,30 @@ $ softmatcha-search --index corpus --backend=fasttext --model=fasttext-fr-vector
 $ softmatcha-search --index corpus --backend=fasttext --model=fasttext-de-vectors "Deutschland"
 $ softmatcha-search --index corpus --backend=fasttext --model=fasttext-it-vectors "Italia"
 ~~~
+
+<br />
+
+## Citation
+
+~~~
+@article{yoneda-preprint-2026-softmatcha2,
+  title         = "{SoftMatcha 2: A Fast and Soft Pattern Matcher for
+                   Trillion-scale Corpora}",
+  author        = "Yoneda, Masataka and Matsushita, Yusuke and Kamoda, Go and
+                   Suenaga, Kohei and Akiba, Takuya and Waga, Masaki and Yokoi,
+                   Sho",
+  journal       = "arXiv [cs.CL]",
+  month         =  "11~" # feb,
+  year          =  2026,
+  url           = "http://dx.doi.org/10.48550/arXiv.2602.10908",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CL",
+  doi           = "10.48550/arXiv.2602.10908"
+}
+~~~
+
+<br />
+
+## License
+
+This software is mainly developed by [Masataka Yoneda](https://sites.google.com/view/e869120-webpage/home) and published under Apache License 2.0.
