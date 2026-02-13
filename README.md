@@ -66,7 +66,7 @@ For faster indexing, we recommend setting the indexing memory usage via `--mem_s
 Note that a large `mem_size_ex` increases loading time, so we suggest using a lower value (e.g., 100) for small corpora.
 
 ~~~bash
-$ softmatcha-index --index corpus --mem_size=5000 --mem_size_ex=1000
+$ softmatcha-index --index corpus --mem_size=5000 --mem_size_ex=1000 corpus.txt
 ~~~
 
 (5,000MB memory for indexing, 1,000MB memory for execution (search))
