@@ -55,10 +55,10 @@ $ uv run maturin develop --release --manifest-path rust/Cargo.toml
 The next step is to build indices with the following command. The final filesize is typically ~10x the size of the raw text for small corpora, but less than 3x for larger corpora.
 
 ~~~bash
-$ softmatcha-index --index [index directory] [text file]
+$ uv run softmatcha-index --index [index directory] [text file]
 
 Example:
-$ softmatcha-index --index corpus corpus.txt
+$ uv run softmatcha-index --index corpus corpus.txt
 ~~~
 
 For faster indexing, we recommend setting the indexing memory usage via `--mem_size`. For faster search, we also recommend setting the search memory usage via `--mem_size_ex`. 
@@ -66,7 +66,7 @@ For faster indexing, we recommend setting the indexing memory usage via `--mem_s
 Note that a large `mem_size_ex` increases loading time, so we suggest using a lower value (e.g., 100) for small corpora.
 
 ~~~bash
-$ softmatcha-index --index corpus --mem_size=5000 --mem_size_ex=1000 corpus.txt
+$ uv run softmatcha-index --index corpus --mem_size=5000 --mem_size_ex=1000 corpus.txt
 ~~~
 
 (5,000MB memory for indexing, 1,000MB memory for execution (search))
@@ -76,17 +76,17 @@ $ softmatcha-index --index corpus --mem_size=5000 --mem_size_ex=1000 corpus.txt
 Finally, you can search for phrases using the following command:
 
 ~~~bash
-$ softmatcha-search --index [index directory] [pattern]
+$ uv run softmatcha-search --index [index directory] [pattern]
 
 Example:
-$ softmatcha-search --index corpus "olympics gold medalist"
+$ uv run softmatcha-search --index corpus "olympics gold medalist"
 ~~~
 
 To adjust the number of outputs, similarity thresholds, or max runtime, use the following options:
 
 ~~~bash
 Example:
-$ softmatcha-search --index corpus --num_candidates=100 --min_similarity=0.2 --max_runtime=20 "olympics gold medalist"
+$ uv run softmatcha-search --index corpus --num_candidates=100 --min_similarity=0.2 --max_runtime=20 "olympics gold medalist"
 ~~~
 
 ### 4. Output Examples: `softmatcha-exact`
@@ -94,11 +94,11 @@ $ softmatcha-search --index corpus --num_candidates=100 --min_similarity=0.2 --m
 You can also search for exact match examples (KWIC) with the following commands:
 
 ~~~bash
-$ softmatcha-exact --index [index directory] [pattern]
+$ uv run softmatcha-exact --index [index directory] [pattern]
 
 Example:
-$ softmatcha-exact --index corpus "olympics gold medalist"
-$ softmatcha-exact --index corpus --display=20 --padding=200 "olympics gold medalist" # Output up to 20 examples with +/- 200 bytes context
+$ uv run softmatcha-exact --index corpus "olympics gold medalist"
+$ uv run softmatcha-exact --index corpus --display=20 --padding=200 "olympics gold medalist" # Output up to 20 examples with +/- 200 bytes context
 ~~~
 
 <br />
@@ -108,21 +108,21 @@ $ softmatcha-exact --index corpus --display=20 --padding=200 "olympics gold meda
 To search in languages other than English, build an index by specifying the backend model:
 
 ~~~bash
-$ softmatcha-index --index corpus --backend=fasttext --model=fasttext-ja-vectors corpus.txt
-$ softmatcha-index --index corpus --backend=fasttext --model=fasttext-zh-vectors corpus.txt
-$ softmatcha-index --index corpus --backend=fasttext --model=fasttext-fr-vectors corpus.txt
-$ softmatcha-index --index corpus --backend=fasttext --model=fasttext-de-vectors corpus.txt
-$ softmatcha-index --index corpus --backend=fasttext --model=fasttext-it-vectors corpus.txt
+$ uv run softmatcha-index --index corpus --backend=fasttext --model=fasttext-ja-vectors corpus.txt
+$ uv run softmatcha-index --index corpus --backend=fasttext --model=fasttext-zh-vectors corpus.txt
+$ uv run softmatcha-index --index corpus --backend=fasttext --model=fasttext-fr-vectors corpus.txt
+$ uv run softmatcha-index --index corpus --backend=fasttext --model=fasttext-de-vectors corpus.txt
+$ uv run softmatcha-index --index corpus --backend=fasttext --model=fasttext-it-vectors corpus.txt
 ~~~
 
 Then, perform the search as follows:
 
 ~~~bash
-$ softmatcha-search --index corpus --backend=fasttext --model=fasttext-ja-vectors "金メダル"
-$ softmatcha-search --index corpus --backend=fasttext --model=fasttext-zh-vectors "中国"
-$ softmatcha-search --index corpus --backend=fasttext --model=fasttext-fr-vectors "France"
-$ softmatcha-search --index corpus --backend=fasttext --model=fasttext-de-vectors "Deutschland"
-$ softmatcha-search --index corpus --backend=fasttext --model=fasttext-it-vectors "Italia"
+$ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-ja-vectors "金メダル"
+$ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-zh-vectors "中国"
+$ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-fr-vectors "France"
+$ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-de-vectors "Deutschland"
+$ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-it-vectors "Italia"
 ~~~
 
 <br />
