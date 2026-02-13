@@ -34,7 +34,11 @@ This is a tool to search in up to trillion-scale corpora, finding not just exact
 The first step is to compile the program using the following commands:
 
 ~~~bash
-$ rm -rf ~/gensim-data # only for the first time
+# only for the first time using SoftMatcha 2
+$ rm -rf ~/gensim-data
+$ rm -rf ~/.cache/huggingface/hub/models--facebook--fasttext*
+
+# install/compilation
 $ curl -LsSf https://astral.sh/uv/install.sh | sh
 $ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 $ source ~/.bashrc
