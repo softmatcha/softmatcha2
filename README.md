@@ -36,7 +36,7 @@ The first step is to compile the program using the following commands:
 ~~~bash
 # only for the first time using SoftMatcha 2
 $ rm -rf ~/gensim-data/glove-wiki-gigaword-300
-$ rm -rf ~/.cache/huggingface/hub/models--facebook--fasttext*
+$ rm -rf ~/.cache/huggingface/hub/models--facebook--fasttext* # If you use languages other than English
 
 # install/compilation
 $ curl -LsSf https://astral.sh/uv/install.sh | sh
