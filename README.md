@@ -35,6 +35,13 @@ The first step is to compile the program using the following commands:
 
 ~~~bash
 $ rm -rf ~/gensim-data # only for the first time
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+$ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+$ source ~/.bashrc
+$ sudo apt-get update
+$ sudo apt-get install -y build-essential python3.12-dev pkg-config libicu-dev
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ source ~/.cargo/env
 $ uv sync
 $ uv run maturin develop --release --manifest-path rust/Cargo.toml
 ~~~
