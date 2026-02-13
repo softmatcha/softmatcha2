@@ -34,6 +34,7 @@ This is a tool to search in up to trillion-scale corpora, finding not just exact
 The first step is to compile the program using the following commands:
 
 ~~~bash
+$ rm -rf ~/gensim-data # only for the first time
 $ uv sync
 $ uv run maturin develop --release --manifest-path rust/Cargo.toml
 ~~~
