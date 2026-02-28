@@ -150,4 +150,4 @@ $ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-it
 
 ## License
 
-This software is mainly developed by [Masataka Yoneda](https://sites.google.com/view/e869120-webpage/home) and published under Apache License 2.0.
+This software is mainly developed by [Masataka Yoneda](https://sites.google.com/view/e869120-webpage/home) and published under the Apache License 2.0 (see `LICENSE`). It also contains portions derived from [SoftMatcha v1](https://github.com/softmatcha/softmatcha), developed by Hiroyuki Deguchi, which are distributed under the MIT License (see `LICENSE-MIT`). In particular, in `src/softmatcha`, `tokenizers/`, `src/`, `utils/`, `registry.py`, `configs.py`, `functional.py`, `stopwatch.py`, `typing.py`, and `conftest.py` are based on SoftMatcha v1 and may include modifications in this repository.
