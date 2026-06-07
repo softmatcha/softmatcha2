@@ -39,3 +39,6 @@ class TokenizerTransformers(Tokenizer):
 			list[str]: The tokenized line.
 		"""
 		return self._tokenizer.tokenize(line, verbose=False)
+
+	def tokenize_raw(self, line: str) -> list[str]:
+		return self._tokenizer.tokenize(line.strip(), verbose=False)
