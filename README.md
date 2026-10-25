@@ -129,20 +129,20 @@ $ uv run softmatcha-search --index corpus --backend=fasttext --model=fasttext-it
 
 ## Citation
 
+Please cite the [published ICML 2026 paper](https://proceedings.mlr.press/v306/yoneda26a.html).
+
 ~~~
-@article{yoneda-preprint-2026-softmatcha2,
-  title         = "{SoftMatcha 2: A Fast and Soft Pattern Matcher for
-                   Trillion-scale Corpora}",
-  author        = "Yoneda, Masataka and Matsushita, Yusuke and Kamoda, Go and
-                   Suenaga, Kohei and Akiba, Takuya and Waga, Masaki and Yokoi,
-                   Sho",
-  journal       = "arXiv [cs.CL]",
-  month         =  "11~" # feb,
-  year          =  2026,
-  url           = "http://dx.doi.org/10.48550/arXiv.2602.10908",
-  archivePrefix = "arXiv",
-  primaryClass  = "cs.CL",
-  doi           = "10.48550/arXiv.2602.10908"
+@inproceedings{pmlr-v306-yoneda26a,
+  title     = {{SoftMatcha 2}: A Fast and Soft Pattern Matcher for Trillion-Scale Corpora},
+  author    = {Yoneda, Masataka and Matsushita, Yusuke and Kamoda, Go and Suenaga, Kohei and Akiba, Takuya and Waga, Masaki and Yokoi, Sho},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {306},
+  pages     = {149430--149463},
+  year      = {2026},
+  month     = jul,
+  publisher = {PMLR},
+  url       = {https://proceedings.mlr.press/v306/yoneda26a.html}
 }
 ~~~
 
