@@ -318,10 +318,14 @@ def tokenize(
 					cur = lines_byt[current_line] + rec_i32[j]
 					if j != i:
 						byte_offset1[j] = min(255, cur - prv)
-						if cur - prv >= 255 and black_cnt[worker_id] < len(black_list[worker_id]):
-							black_list[worker_id][2 * black_cnt[worker_id] + 0] = j - 1
-							black_list[worker_id][2 * black_cnt[worker_id] + 1] = cur - prv
-							black_cnt[worker_id] += 1
+						if cur - prv >= 255:
+							# Each exception uses two slots. Count every exception even when the
+							# slots run out, so that the caller can reallocate and fill again.
+							k = black_cnt[worker_id]
+							if 2 * k + 1 < len(black_list[worker_id]):
+								black_list[worker_id][2 * k + 0] = j - 1
+								black_list[worker_id][2 * k + 1] = cur - prv
+							black_cnt[worker_id] = k + 1
 						prv = cur
 					else:
 						prv = cur
@@ -338,6 +342,12 @@ def tokenize(
 		cap_tokens(tokens, num_tokens, MAX_VOCAB - 1)
 		logger.info(f"Tokenize final processing 1/2 finished")
 		fill_all(num_tokens, bytes_rec, byte_offset1, byte_offset2, lines_tkn, lines_byt, black_cnt, black_list)
+		if 2 * int(black_cnt.max()) > black_list.shape[1]:
+			# Too many long words (>= 255 bytes) for the initial estimate: reallocate with the exact size and fill again
+			logger.info(f"Exceptions exceed the initial estimate ({int(black_cnt.max()):,} > {black_list.shape[1] // 2:,} per worker); filling again")
+			black_list = np.zeros((num_workers, 2 * int(black_cnt.max())), dtype=np.uint64)
+			black_cnt[:] = 0
+			fill_all(num_tokens, bytes_rec, byte_offset1, byte_offset2, lines_tkn, lines_byt, black_cnt, black_list)
 		logger.info(f"Tokenize final processing 2/2 finished")
 		logger.info(f"=====================================================")
 
